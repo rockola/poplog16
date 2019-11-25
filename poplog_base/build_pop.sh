@@ -1,6 +1,8 @@
 #!/bin/bash
 ## Run this in the build_pop directory created from tar file
 
+mkdir -p pop/pop
+
 echo "./build_pop0 > rapp1 2>&1"
 ./build_pop0 > rapp1 2>&1
 
