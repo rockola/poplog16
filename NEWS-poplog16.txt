@@ -1,0 +1,54 @@
+POPLOG VERSION 16 NEWS
+
+This file is
+http://www.cs.bham.ac.uk/research/projects/poplog/amd64/poplog16/NEWS-poplog16.txt
+Maintained by Aaron Sloman
+Based mainly on work done by Waldek Hebisch to Port 32-bit linux poplog to
+AMD64 (64 bit)
+
+Last updated 16 Jul 2019
+=======================
+
+To save the need to edit this file each time there's a new version of
+poplog_baseN.tar.bz2 I've created a symbolic link
+
+    poplog_latest_base.tar.bz2
+
+at the time this note was written it was linked to poplog_base6.tar.bz2
+That may change.
+
+
+=======================
+NCURSES NEWS
+Waldek wrote to the pop-forum mailing list:
+ Sun, 14 Jul 2019
+(slightly edited):
+
+It was noted that some Linux systems have only ncurses version 5, while
+others have only version 6.  Executables linked to non-present version of
+the library can not run, so it is not possible to have a single executable
+that runs on a large variety of Linux system and which is linked with
+ncurses.
+
+So to ease recompiling Poplog I have created corepop which does not link to
+ncurses.  ATM I do not know what is best way to do this.  I simply removed
+'termcap.p' from 'pop/src'. Moving it to 'pop/ved/src' and adjusting
+sources so that they still compile allow building 'basepop11' linked to
+ncurses from the same source.  I do not know why 'termcap.p' is in
+'pop/src'.  It seems that in the base system only ved needs termcap (more
+precisely terminfo) functions so it seem resonable to move 'termcap.p' to
+the Ved directory. Is there a better solution?
+
+Anyway, at
+
+ http://www.math.uni.wroc.pl/~hebisch/poplog/poplog_base6.tar.bz2
+ copied to this directory (4.6MB)
+
+ http://www.cs.bham.ac.uk/research/projects/poplog/amd64/poplog16/poplog_base6.tar.bz2
+
+This tarball contains a new corepop.  I also slightly modified 'pglink' so
+that it does not build 'rsvpop11' when '-core' is given.  There are no
+other changes compared to version 5 tarball (in particular corepop built
+from the tarball is linked to ncurses).
+
+==============
